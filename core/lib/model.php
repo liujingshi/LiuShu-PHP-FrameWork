@@ -64,13 +64,13 @@ class model {
 		$lastPage = $nowPage - 1;
 		$nextPage = $nowPage + 1;
 		if ($nowPage != 1) {
-			$ans .= '<a href="http://'.HTTPROOT.'/'.$ctrl.'/'.$action.'/page/'.$lastPage.'"><上一页</a>&nbsp';
+			$ans .= '<a href="/'.$ctrl.'/'.$action.'/page/'.$lastPage.'"><上一页</a>&nbsp';
 		}
 		for ($i = 1; $i <= $pageNum; $i++) {
-			$ans .= "<a href='http://".HTTPROOT."/".$ctrl."/".$action."/page/".$i."'>".$i."</a>&nbsp";
+			$ans .= "<a href='/".$ctrl."/".$action."/page/".$i."'>".$i."</a>&nbsp";
 		}
 		if ($nowPage != $pageNum) {
-			$ans .= "<a href='http://".HTTPROOT."/".$ctrl."/".$action."/page/".$nextPage."'>下一页></a>&nbsp";
+			$ans .= "<a href='/".$ctrl."/".$action."/page/".$nextPage."'>下一页></a>&nbsp";
 		}
 		for ($i = 1; $i <= $pageNum; $i++) {
 			for ($j = 1; $j <= $num; $j++) {

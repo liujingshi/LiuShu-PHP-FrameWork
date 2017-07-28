@@ -10,7 +10,8 @@ define('CORE', LIUSHUROOT.'/core'); //核心代码路径
 define('APP', LIUSHUROOT.'/app'); //网站代码目录
 define('ERROR', LIUSHUROOT.'/error'); //错误页面目录
 define('MODULE', 'app');
-define('HTTPROOT', $_SERVER['HTTP_HOST']); //获取域名
+define('JS', '/core/js'); //js文件夹路径
+define('CSS', '/core/css'); //css文件夹路径
 
 define('DEBUG', false); //是否开启调试模式
 
