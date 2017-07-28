@@ -20,9 +20,10 @@ class liushu {
         	$ctrl = new $mctrlClass;
         	$ctrl->$action();
         } else {
+        	lib\log::log($ctrlClass, $action);
         	outputError("找不到控制器：".$ctrlClass);
         }
-        lib\log::log("CTRL:".$ctrlClass." - ACTION:".$action);
+        lib\log::log($ctrlClass, $action);
     }
     /**
      * 自动加载类库

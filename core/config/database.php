@@ -1,6 +1,11 @@
 <?php
+/**
+ * 数据库配置文件
+ */
 return array(
-		'DSN' => 'mysql:host=localhost;dbname=DBNAME',
-		'USERNAME' => 'USERNAME',
-		'PASSWD' => 'PASSWORD',
+		'HOST' => 'localhost',
+		'USERNAME' => 'root',
+		'PASSWORD' => 'root',
+		'DBNAME' => 'db',
+		
 );

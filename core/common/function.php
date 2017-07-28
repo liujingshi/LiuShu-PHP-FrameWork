@@ -1,5 +1,9 @@
 <?php
 /**
+ * 函数库
+ */
+
+/**
  * 输出函数
  */
 function output($var) {
@@ -19,3 +23,4 @@ function outputError($errorMessage) {
 	include $errorFile;
 	exit();
 }
+

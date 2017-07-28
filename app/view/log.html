@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>系统日志</title>
+
+<style>
+* {
+	padding:0;
+	margin:0;
+}
+.wrap {
+	width:95%;
+	margin:20px auto 0;
+	font-size:36px;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+	border:1px solid #c0c0c0;
+	width:100%;
+	font-size:36px;
+}
+th,td {
+	border:1px solid #d0d0d0;
+	color:#404060;
+	padding:10px;
+	font-size:36px;
+}
+th {
+	background-color:#09c;
+	font:bold 48px "微软雅黑";
+	color:#fff;
+}
+td {
+	font:36px "微软雅黑";
+}
+tbody tr {
+	background-color:#f0f0f0;
+}
+tbody tr:hover {
+	cursor:pointer;
+	background-color:#fafafa;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+    <table>
+        <thead>
+            <tr>
+            	<th>序号</th>
+                <th>日期</th>
+                <th>被访问控制器</th>
+                <th>被访问方法</th>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+        <?php 
+		if (isset($_GET['page'])) {
+			$page = $_GET['page'];
+		} else {
+			$page = 1;
+		}
+		$i = ($page - 1) * 10 + 1;
+		$sql = "select * from log";
+		$rst = $model->query($sql);
+		$pageAns = $model->page($rst, 10, $page, "index", "log");
+		$rows = $pageAns['pageRows'];
+        foreach ($rows as $row) {
+        ?>
+            <tr>
+            	<td><?php echo $i; $i++;?></td>
+                <td><?php echo $row['date'];?></td>
+                <td><?php echo $row['ctrl'];?></td>
+                <td><?php echo $row['action'];?></td>
+            </tr>
+            
+        <?php }?>
+
+        </tbody>
+    </table>
+    <?php
+	output($pageAns['ans']);
+	?>
+</div>
+<script>
+ var all = document.getElementById("j_cbAll");
+ var tbody = document.getElementById("j_tb");
+ var checkboxs = tbody.getElementsByTagName("input");
+ all.onclick = function() {
+     for (var i = 0; i < checkboxs.length; i++) {
+         var checkbox = checkboxs[i];
+         checkbox.checked = this.checked;
+     }
+ };
+ for (var i = 0; i < checkboxs.length; i++) {
+     checkboxs[i].onclick = function() {
+         var isCheckedAll = true;
+         for (var i = 0; i < checkboxs.length; i++) {
+             if (!checkboxs[i].checked) {
+                 isCheckedAll = false;
+                 break;
+             }
+         }
+         all.checked = isCheckedAll;
+     };
+ }</script>
+ 
+</body>
+</html>

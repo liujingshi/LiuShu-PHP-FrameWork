@@ -6,7 +6,9 @@ class route {
 	
 	public $ctrl;
 	public $action;
-	
+	/**
+	 * 构造函数 获取路由中的控制器和方法
+	 */
 	public function __construct() {
 		if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '/') {
 			$path = $_SERVER['REQUEST_URI'];

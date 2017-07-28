@@ -2,20 +2,18 @@
 
 namespace core\lib\drive\log;
 
-use core\lib\conf;
-
 class file {
-	
-	public $path;
+	//linux服务器中无权限 该功能停用
+	/*public $path;
 	public $datePath;
 	
 	public function __construct() {
 		$conf = conf::get('OPTION', 'log');
 		$this->path = $conf['PATH'];
-	}
+	}*/
 	
 	public function log($message, $file = 'log') {
-		$this->datePath = $this->path.date('YmdH').'/';
+		/*$this->datePath = $this->path.date('YmdH').'/';
 		if (!is_dir($this->datePath)) {
 			mkdir($this->datePath, '0777', true);
 		}
@@ -25,6 +23,7 @@ class file {
 		if (!is_file($fileName)) {
 			file_put_contents($fileName, "<head><title>日志文件</title></head>".PHP_EOL,FILE_APPEND);
 		}
-		return file_put_contents($fileName, $data.PHP_EOL,FILE_APPEND);
+		return file_put_contents($fileName, $data.PHP_EOL,FILE_APPEND);*/
+		
 	}
 }
